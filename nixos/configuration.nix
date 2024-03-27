@@ -64,6 +64,7 @@
         wget
         chromium
         kitty
+        wezterm
         xdg-utils
         rofi-wayland
         # RICING
