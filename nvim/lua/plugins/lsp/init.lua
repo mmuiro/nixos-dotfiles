@@ -25,10 +25,10 @@ return {
                 })
             end
 
-            sign({ name = "DiagnosticSignError", text = "" })
-            sign({ name = "DiagnosticSignWarn", text = "" })
-            sign({ name = "DiagnosticSignHint", text = "" })
-            sign({ name = "DiagnosticSignInfo", text = "" })
+            sign({ name = "DiagnosticSignError", text = "󰅚 " })
+            sign({ name = "DiagnosticSignWarn", text = " " })
+            sign({ name = "DiagnosticSignHint", text = "󰌶" })
+            sign({ name = "DiagnosticSignInfo", text = " " })
 
             vim.diagnostic.config({
                 virtual_text = false,
@@ -144,31 +144,31 @@ return {
         config = function()
             -- cmp setup
             local kind_icons = {
-                Text = "",
+                Text = "󰉿",
                 Method = "m",
-                Function = "",
+                Function = "󰊕",
                 Constructor = "",
                 Field = "",
-                Variable = "",
-                Class = "",
-                Interface = "",
+                Variable = "󰆧",
+                Class = "󰌗",
+                Interface = " ",
                 Module = "",
                 Property = "",
                 Unit = "",
-                Value = "",
+                Value = "󰎠",
                 Enum = "",
-                Keyword = "",
+                Keyword = "󰌋",
                 Snippet = "",
-                Color = "",
-                File = "",
+                Color = "󰏘",
+                File = "󰈙",
                 Reference = "",
-                Folder = "",
+                Folder = "󰉋",
                 EnumMember = "",
-                Constant = "",
-                Struct = "",
+                Constant = "󰇽",
+                Struct = " ",
                 Event = "",
-                Operator = "",
-                TypeParameter = "",
+                Operator = "󰆕",
+                TypeParameter = "󰊄",
             }
             local cmp = require("cmp")
             cmp.setup({
@@ -203,10 +203,10 @@ return {
                     format = function(entry, item)
                         item.kind = string.format("%s", kind_icons[item.kind])
                         local menu_icons = {
-                            nvim_lsp = "λ",
-                            vsnip = "⋗",
-                            buffer = "Ω",
-                            path = "🖫",
+                            nvim_lsp = "[LSP]",
+                            vsnip = "[Snip]",
+                            buffer = "[Buf]",
+                            path = "[Path]",
                         }
                         item.menu = menu_icons[entry.source.name]
                         return item

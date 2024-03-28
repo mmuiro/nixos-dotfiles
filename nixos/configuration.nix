@@ -63,15 +63,24 @@
         neovim
         wget
         chromium
-        kitty
         wezterm
         xdg-utils
         rofi-wayland
+        libnotify
+        unzip
+        # Programming languages (switch to using shell.nix where possible)
+        rustup
+        go
+        python3
+        # SNS
+        discord
+        slack
         # RICING
         hyprpaper
         # OTHER
         neofetch
-        # packages not in nixpkgs
+        # Additional packages defined in flake.nix not found in nixpkgs
+        inputs.wired-notify.packages.${pkgs.system}.default
     ];
 
     # Package List (via enable)
