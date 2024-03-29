@@ -1,0 +1,78 @@
+(include "/home/jzli/.config/eww/common/utils/closer.yuck")
+
+(defvar powermenu_open false)
+(defvar POWERMENU_SCRIPT "$HOME/.config/eww/powermenu/powermenu.sh")
+(defvar uptime "")
+(defvar user "")
+(defvar hostname "")
+
+(defwidget powermenu-widget []
+    (box
+        :class "powermenu-wrapper"
+        :orientation "v"
+        :space-evenly false
+        (box
+            :class "powermenu-header"
+            (label :text "󱄅 ${user}@${hostname}"))
+        (box
+            :class "powermenu-inner"
+            :orientation "v"
+            :space-evenly false
+            :spacing 16
+            (box
+                :orientation "h"
+                :spacing 16
+                (eventbox
+                 :class "powermenu-item"
+                 :width 128
+                 :height 128 
+                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd logout"
+                 (label :text "󰍃"))
+                (eventbox
+                 :class "powermenu-item"
+                 :width 128
+                 :height 128 
+                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd suspend"
+                 (label :text "󰤄"))
+                (eventbox
+                 :class "powermenu-item"
+                 :width 128
+                 :height 128
+                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd reboot"
+                 (label :text "󰑙"))
+                (eventbox
+                 :class "powermenu-item"
+                 :width 128
+                 :height 128
+                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd shutdown"
+                 (label :text "󰐥")))
+            (box
+                :class "powermenu-uptime"
+                :vexpand false
+                (label 
+                    :vexpand false
+                    :text "  Uptime: ${uptime}")))))
+
+(defwindow powermenu
+    :monitor 0
+    :geometry (geometry
+                :x "50%"
+                :y "50%"
+                :anchor "center")
+    :stacking "fg"
+    :exclusive false
+    :focusable false
+    :namespace "eww-powermenu"
+    (powermenu-widget))
+
+(defwindow powermenu-closer
+    :monitor 0
+    :geometry (geometry
+                :width "100%"
+                :height "100%")
+    :stacking "fg"
+    :exclusive false
+    :focusable false
+    (closer 
+        :window "powermenu"
+        :close_cmd "${POWERMENU_SCRIPT} close-powermenu"))

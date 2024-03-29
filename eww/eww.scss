@@ -1,0 +1,9 @@
+@import "./common/colors.scss";
+@import "./common/utils/closer.scss";
+@import "./powermenu/powermenu.scss";
+
+* {
+    all: unset;
+    font-family: "FiraCode Nerd Font";
+    transition: all 100ms ease-in;
+}

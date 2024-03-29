@@ -68,15 +68,21 @@
         rofi-wayland
         libnotify
         unzip
+        du-dust
+        ripgrep
+        fd
         # Programming languages (switch to using shell.nix where possible)
         rustup
         go
         python3
+        nodejs_21
         # SNS
         discord
         slack
         # RICING
         hyprpaper
+        eww-wayland
+        # TODO: add nwg-look (lxappearance alternative)
         # OTHER
         neofetch
         # Additional packages defined in flake.nix not found in nixpkgs

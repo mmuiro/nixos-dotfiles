@@ -1,0 +1,35 @@
+.powermenu-item {
+    border-radius: 6px;
+    background-color: $fg-dark;
+    label {
+        font-size: 80px;
+    }
+    &:hover {
+        background-color: $fg-light;
+        label {
+            color: $bg-dark;
+        }
+    }
+}
+
+.powermenu-header {
+    border-radius: 8px 8px 0 0;
+    background-color: $fg-light;
+    padding: 8px;
+    label {
+        color: $bg-dark;
+        font-size: 16px;
+    }
+}
+
+.powermenu-inner {
+    border-radius: 0 0 8px 8px;
+    padding: 16px;
+    background-color: $bg-dark;
+}
+
+.powermenu-uptime {
+    label {
+        font-size: 16px;
+    }
+}
