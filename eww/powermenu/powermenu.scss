@@ -4,7 +4,7 @@
     label {
         font-size: 80px;
     }
-    &:hover {
+    &.selected {
         background-color: $fg-light;
         label {
             color: $bg-dark;

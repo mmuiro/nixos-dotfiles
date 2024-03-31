@@ -1,7 +1,8 @@
 (include "/home/jzli/.config/eww/common/utils/closer.yuck")
 
-(defvar powermenu_open false)
 (defvar POWERMENU_SCRIPT "$HOME/.config/eww/powermenu/powermenu.sh")
+(defvar powermenu_open false)
+(defvar selected_powermenu_item 0)
 (defvar uptime "")
 (defvar user "")
 (defvar hostname "")
@@ -23,28 +24,32 @@
                 :orientation "h"
                 :spacing 16
                 (eventbox
-                 :class "powermenu-item"
+                 :class "powermenu-item ${selected_powermenu_item == 0 ? "selected" : ""}"
                  :width 128
-                 :height 128 
-                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd logout"
+                 :height 128
+                 :onhover "${POWERMENU_SCRIPT} set-selected-item 0"
+                 :onclick "${POWERMENU_SCRIPT} run-selected-item"
                  (label :text "󰍃"))
                 (eventbox
-                 :class "powermenu-item"
+                 :class "powermenu-item ${selected_powermenu_item == 1 ? "selected" : ""}"
                  :width 128
                  :height 128 
-                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd suspend"
+                 :onhover "${POWERMENU_SCRIPT} set-selected-item 1"
+                 :onclick "${POWERMENU_SCRIPT} run-selected-item"
                  (label :text "󰤄"))
                 (eventbox
-                 :class "powermenu-item"
+                 :class "powermenu-item ${selected_powermenu_item == 2 ? "selected" : ""}"
                  :width 128
                  :height 128
-                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd reboot"
+                 :onhover "${POWERMENU_SCRIPT} set-selected-item 2"
+                 :onclick "${POWERMENU_SCRIPT} run-selected-item"
                  (label :text "󰑙"))
                 (eventbox
-                 :class "powermenu-item"
+                 :class "powermenu-item ${selected_powermenu_item == 3 ? "selected" : ""}"
                  :width 128
                  :height 128
-                 :onclick "${POWERMENU_SCRIPT} close-powermenu && ${POWERMENU_SCRIPT} run-powermenu-cmd shutdown"
+                 :onhover "${POWERMENU_SCRIPT} set-selected-item 3"
+                 :onclick "${POWERMENU_SCRIPT} run-selected-item"
                  (label :text "󰐥")))
             (box
                 :class "powermenu-uptime"
