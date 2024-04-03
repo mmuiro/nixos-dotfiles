@@ -5,4 +5,48 @@
         padding: 8px 18px;
         font-size: 24px;
     }
+    &:hover {
+        color: $fg-light;
+    }
+}
+
+.battery-menu {
+    background-color: $bg-dark;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.battery-status {
+    font-size: 16px;
+    padding: 4px 8px;
+    color: $fg-lightest;
+}
+
+.battery-menu-border {
+    background-color: $fg-light;
+    padding: 2px;
+    border-radius: 8px;
+}
+
+.power-profile-menu {
+    font-size: 18px;
+    color: $fg-light;
+
+    .power-profile-entry {
+        background-color: $bg-darkish;
+        color: $fg-lightest;
+        border-radius: 6px;
+        &.selected {
+            background-color: $fg-alt;
+            color: $bg-dark;
+        }
+        &:hover {
+            background-color: $fg-light;
+            color: $bg-dark;
+        }
+        label {
+            font-size: 16px;
+            padding: 8px 12px;
+        }
+    }
 }

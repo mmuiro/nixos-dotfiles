@@ -1,9 +1,66 @@
+(defvar BATTERY_SCRIPT "/home/jzli/.config/eww/bar/widgets/battery/battery.sh")
+
+(deflisten active_power_profile "$HOME/.config/eww/bar/widgets/battery/battery.sh follow-active-profile")
+(defvar power_profiles "[]")
+(defvar battery_menu_open false)
+
 (defwidget battery []
     (eventbox
         :hexpand false
+        :onclick "${BATTERY_SCRIPT} open-battery-menu"
         :class "battery"
         (label :text {EWW_BATTERY.BAT1.capacity <= 10 ? "󰂃" : 
                EWW_BATTERY.BAT1.capacity <= 30 ? "󰁻" :
                EWW_BATTERY.BAT1.capacity <= 50 ? "󰁽" :
                EWW_BATTERY.BAT1.capacity <= 70 ? "󰁿" :
                EWW_BATTERY.BAT1.capacity <= 90 ? "󰂁" : "󰁹"})))
+
+(defwidget battery-menu-widget []
+    (box
+        :class "battery-menu-border"
+        (box
+            :orientation "v"
+            :class "battery-menu"
+            :space-evenly false
+            :spacing 8
+            (box
+                :class "power-profile-menu"
+                :orientation "v"
+                :space-evenly false
+                :spacing 6
+                (label :text "Power Profile  󱐋")
+                (for profile in power_profiles
+                     (eventbox
+                        :class "power-profile-entry ${active_power_profile == profile ? "selected" : ""}"
+                        :onclick "${BATTERY_SCRIPT} set-active-profile ${profile}"
+                        :halign "fill"
+                        (label 
+                            :halign "start"
+                            :text profile))))
+            (label
+                :class "battery-status"
+                :halign "start"
+                :text "a ${EWW_BATTERY.BAT1.capacity}%"))))
+
+(defwindow battery-menu
+    :monitor 0
+    :geometry (geometry
+                :x "154px"
+                :y "4px"
+                :anchor "bottom right")
+    :stacking "overlay"
+    :exclusive false
+    :focusable false
+    (battery-menu-widget))
+
+(defwindow battery-menu-closer
+    :monitor 0
+    :geometry (geometry
+                :width "100%"
+                :height "100%")
+    :stacking "overlay"
+    :exclusive false
+    :focusable true
+    (closer
+        :window "battery-menu"
+        :close_cmd "${BATTERY_SCRIPT} close-battery-menu"))

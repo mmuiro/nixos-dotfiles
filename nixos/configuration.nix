@@ -126,6 +126,7 @@
            enable = true;
         };
         automatic-timezoned.enable = true;
+        power-profiles-daemon.enable = true;
     };
 
     xdg = {

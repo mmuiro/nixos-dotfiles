@@ -3,7 +3,7 @@
 (defvar TIME_SCRIPT "$HOME/.config/eww/bar/widgets/time/time.sh")
 (defvar calendar_open "false")
 
-(defpoll time-value 
+(defpoll time_value 
     :initial "Loading..."
     :interval "1s"
     "date +'%H:%M | %m/%d/%y'")
@@ -12,24 +12,27 @@
     (eventbox
         :class "time"
         :onclick "${TIME_SCRIPT} open-calendar"
-        (label :text time-value)))
+        (label :text time_value)))
+
+(defwidget calendar-widget []
+    (box 
+        :class "calendar-border"
+        (box
+            :class "calendar-wrapper"
+            (calendar))))
 
 (defwindow calendar
     :monitor 0
     :geometry (geometry
-                :x "0%"
-                :y "0%"
+                :x "4px"
+                :y "4px"
                 :width "256px"
                 :anchor "bottom right")
 
     :stacking "overlay"
     :exclusive false
     :focusable false
-    (box 
-        :class "calendar-border"
-        (box
-            :class "calendar-wrapper"
-            (calendar))))
+    (calendar-widget))
 
 (defwindow calendar-closer
     :monitor 0

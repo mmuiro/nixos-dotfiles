@@ -9,7 +9,7 @@ function toggle_calendar {
 
 function open_calendar {
     eww update calendar_open="true"
-    eww open calendar-closer && eww open calendar
+    eww open-many calendar-closer calendar
 }
 
 function close_calendar {

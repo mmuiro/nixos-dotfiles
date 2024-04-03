@@ -8,4 +8,4 @@ fi
 eww daemon &
 eww open bar
 # set initial variable values
-eww update user=$USER hostname=$(hostname)
+eww update user=$USER hostname=$(hostname) power_profiles=$($HOME/.config/eww/bar/widgets/battery/battery.sh get-profiles)

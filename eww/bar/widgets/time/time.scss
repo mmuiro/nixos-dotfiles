@@ -1,15 +1,13 @@
 .time {
     border-radius: 8px;
     background-color: $bg-darkish;
+    color: $fg-lightest;
     &:hover {
         color: $fg-light;
     }
     label {
         font-size: 18px;
         padding: 8px 12px;
-        &:hover {
-            color: $fg-light;
-        }
     }
 }
 
@@ -24,7 +22,6 @@
 }
 
 .calendar-border {
-    margin: 8px;
     border-radius: 8px;
     padding: 2px;
     background-color: $fg-light;
