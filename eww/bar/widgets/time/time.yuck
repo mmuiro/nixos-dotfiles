@@ -1,0 +1,44 @@
+(include "/home/jzli/.config/eww/common/utils/closer.yuck")
+
+(defvar TIME_SCRIPT "$HOME/.config/eww/bar/widgets/time/time.sh")
+(defvar calendar_open "false")
+
+(defpoll time-value 
+    :initial "Loading..."
+    :interval "1s"
+    "date +'%H:%M | %m/%d/%y'")
+
+(defwidget time []
+    (eventbox
+        :class "time"
+        :onclick "${TIME_SCRIPT} open-calendar"
+        (label :text time-value)))
+
+(defwindow calendar
+    :monitor 0
+    :geometry (geometry
+                :x "0%"
+                :y "0%"
+                :width "256px"
+                :anchor "bottom right")
+
+    :stacking "overlay"
+    :exclusive false
+    :focusable false
+    (box 
+        :class "calendar-border"
+        (box
+            :class "calendar-wrapper"
+            (calendar))))
+
+(defwindow calendar-closer
+    :monitor 0
+    :geometry (geometry
+                :width "100%"
+                :height "100%")
+    :stacking "overlay"
+    :exclusive false
+    :focusable true
+    (closer 
+        :window "calendar"
+        :close_cmd "${TIME_SCRIPT} close-calendar"))

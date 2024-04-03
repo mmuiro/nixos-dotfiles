@@ -1,0 +1,9 @@
+(defwidget battery []
+    (eventbox
+        :hexpand false
+        :class "battery"
+        (label :text {EWW_BATTERY.BAT1.capacity <= 10 ? "󰂃" : 
+               EWW_BATTERY.BAT1.capacity <= 30 ? "󰁻" :
+               EWW_BATTERY.BAT1.capacity <= 50 ? "󰁽" :
+               EWW_BATTERY.BAT1.capacity <= 70 ? "󰁿" :
+               EWW_BATTERY.BAT1.capacity <= 90 ? "󰂁" : "󰁹"})))

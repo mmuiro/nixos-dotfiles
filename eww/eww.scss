@@ -1,4 +1,9 @@
 @import "./common/colors.scss";
+@import "./bar/bar.scss";
+// bar widget css files
+@import "./bar/widgets/time/time.scss";
+@import "./bar/widgets/battery/battery.scss";
+// css for other windows
 @import "./common/utils/closer.scss";
 @import "./powermenu/powermenu.scss";
 

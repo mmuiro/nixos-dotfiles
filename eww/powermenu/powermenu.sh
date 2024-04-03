@@ -34,7 +34,6 @@ function run_powermenu_cmd {
         "reboot") reboot;;
         "shutdown") shutdown -h now;;
         "logout") exit;;
-        # todo - add a logout option using exit
         *) echo "Invalid powermenu command." && exit 1;
     esac
 }

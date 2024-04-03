@@ -1,0 +1,31 @@
+.time {
+    border-radius: 8px;
+    background-color: $bg-darkish;
+    &:hover {
+        color: $fg-light;
+    }
+    label {
+        font-size: 18px;
+        padding: 8px 12px;
+        &:hover {
+            color: $fg-light;
+        }
+    }
+}
+
+.calendar-wrapper {
+    padding: 12px;
+    border-radius: 6px;
+    background-color: $bg-dark;
+    calendar {
+        padding: 6px;
+        font-size: 18px;
+    }
+}
+
+.calendar-border {
+    margin: 8px;
+    border-radius: 8px;
+    padding: 2px;
+    background-color: $fg-light;
+}

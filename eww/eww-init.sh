@@ -6,5 +6,6 @@ if [ $(eww ping) == "pong" ]; then
     eww kill
 fi
 eww daemon &
+eww open bar
 # set initial variable values
 eww update user=$USER hostname=$(hostname)

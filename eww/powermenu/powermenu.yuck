@@ -64,7 +64,7 @@
                 :x "50%"
                 :y "50%"
                 :anchor "center")
-    :stacking "fg"
+    :stacking "overlay"
     :exclusive false
     :focusable false
     :namespace "eww-powermenu"
@@ -75,9 +75,9 @@
     :geometry (geometry
                 :width "100%"
                 :height "100%")
-    :stacking "fg"
+    :stacking "overlay"
     :exclusive false
-    :focusable false
+    :focusable true
     (closer 
         :window "powermenu"
         :close_cmd "${POWERMENU_SCRIPT} close-powermenu"))
