@@ -1,13 +1,9 @@
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,filebrowser,window";
+	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
 	drun-display-format:        "{name}";
-	window-format:              "{w} · {c} · {t}";
 }
 
 /*****----- Global Properties -----*****/
@@ -19,11 +15,11 @@ configuration {
 
 /*****----- Colors -----*****/
 * {
-    background:     #282A2EF3;
-    background-alt: #373B41;
-    foreground:     #C9FFD8;
-    selected:       #A6FFC3;
-    active:         #694DF8;
+    background:     #211F25;
+    background-alt: #2E2B34;
+    foreground:     #C4E1FF;
+    selected:       #FFD9F4;
+    active:         #FFCAAD;
     urgent:         #DAC4FF;
 }
 
@@ -60,7 +56,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       600px;
+    width:                       480px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -181,8 +177,9 @@ listview {
     text-color:                  @foreground-colour;
     cursor:                      "default";
 }
+
 scrollbar {
-    handle-width:                5px ;
+    handle-width:                6px ;
     handle-color:                @handle-colour;
     border-radius:               8px;
     background-color:            @alternate-background;
