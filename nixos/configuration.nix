@@ -42,13 +42,12 @@
     # Enable touchpad support (enabled default in most desktopManager).
     # services.xserver.libinput.enable = true;
   
-    # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.jzli = {
         isNormalUser = true;
-        home = "/home/jzli/";
         uid = 1000;
         shell = pkgs.zsh;
         extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+        # other information is specified in home.nix
     };
 
     # Nixpkgs Config
@@ -74,6 +73,10 @@
         du-dust
         ripgrep
         fd
+        brightnessctl
+        acpi
+        socat
+        jq
         # Programming languages (switch to using shell.nix where possible)
         rustup
         go
