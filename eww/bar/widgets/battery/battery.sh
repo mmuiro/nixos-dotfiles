@@ -33,8 +33,12 @@ function get_status {
     acpi -b | rg -o "Battery 0: (Discharging|Not charging|Charging), [0-9]{1,3}%(, ([0-9][0-9]:[0-9][0-9]:[0-9][0-9]))*" -r '{"status": "$1", "remaining_time": "$3"}'
 }
 
+function get_battery_life {
+    acpi -b | rg -o "[0-9][0-9]:[0-9][0-9]:[0-9][0-9]"
+}
+
 function open_battery_menu {
-    eww update battery_menu_open="true"
+    eww update battery_menu_open="true" battery_life="$(get_battery_life)"
     eww open-many battery-menu-closer battery-menu
 }
 
@@ -59,6 +63,7 @@ case "$1" in
     "follow-active-profile") follow_active_profile;;
     "set-active-profile") set_active_profile "$2";;
     "status") get_status;;
+    "get-battery-life") get_battery_life;;
     "open-battery-menu") open_battery_menu;;
     "close-battery-menu") close_battery_menu;;
     # "check_battery") check_battery;;

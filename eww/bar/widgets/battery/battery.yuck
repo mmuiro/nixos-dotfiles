@@ -2,6 +2,7 @@
 
 (deflisten active_power_profile "$HOME/.config/eww/bar/widgets/battery/battery.sh follow-active-profile")
 (defvar power_profiles "[]")
+(defvar battery_life "Loading...")
 (defvar battery_menu_open false)
 
 (defwidget battery []
@@ -37,10 +38,17 @@
                         (label 
                             :halign "start"
                             :text profile))))
-            (label
+            (box
+                :orientation "h"
                 :class "battery-status"
-                :halign "start"
-                :text "a ${EWW_BATTERY.BAT1.capacity}%"))))
+                :space-evenly true
+                :spacing 8
+                (label
+                    :halign "start"
+                    :text "${EWW_BATTERY.BAT1.status == "Charging" ? "󰂉" : "󰁿"} ${EWW_BATTERY.BAT1.capacity}%")
+                (label
+                    :halign "end"
+                    :text battery_life)))))
 
 (defwindow battery-menu
     :monitor 0

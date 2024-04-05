@@ -1,5 +1,7 @@
 (include "/home/jzli/.config/eww/bar/widgets/time/time.yuck")
 (include "/home/jzli/.config/eww/bar/widgets/battery/battery.yuck")
+(include "/home/jzli/.config/eww/bar/widgets/workspaces/workspaces.yuck")
+(include "/home/jzli/.config/eww/bar/widgets/launcher/launcher.yuck")
 
 (defwidget bar-widget []
     (centerbox
@@ -7,10 +9,14 @@
         :orientation "h"
         (box
             :space-evenly false
+            :spacing 8
             :halign "start")
         (box
             :space-evenly false
-            :halign "center")
+            :spacing 8
+            :halign "center"
+            (launcher)
+            (workspaces))
         (box
             :space-evenly false
             :spacing 8

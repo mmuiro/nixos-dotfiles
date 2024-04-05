@@ -1,0 +1,12 @@
+.launcher {
+    background-color: $bg-darkish;
+    border-radius: 8px;
+    color: $fg-alt;
+    &:hover {
+        color: $fg-light;
+    }
+    label {
+        padding: 8px 20px 8px 16px;
+        font-size: 28px;
+    }
+}

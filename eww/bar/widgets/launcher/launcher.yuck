@@ -1,0 +1,5 @@
+(defwidget launcher []
+    (eventbox
+        :class "launcher"
+        :onclick "rofi -show drun -theme $HOME/.config/rofi/theme.rasi &"
+        (label :text "󰏫")))

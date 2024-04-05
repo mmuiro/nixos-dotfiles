@@ -1,0 +1,16 @@
+(defvar WORKSPACES_SCRIPT "$HOME/.config/eww/bar/widgets/workspaces/workspaces.sh")
+(deflisten workspaces_status
+    :initial "[]"
+    "$HOME/.config/eww/bar/widgets/workspaces/workspaces.sh follow-workspaces")
+(defvar active_workspace 1)
+
+(defwidget workspaces []
+    (box
+        :class "workspaces"
+        :orientation "h"
+        :spacing 16
+        (for workspace in workspaces_status
+             (eventbox
+                :class "workspace-item ${workspace.windows > 0 ? "occupied" : "workspace-item"} ${workspace.id == active_workspace ? "active" : ""}"
+                :onclick "${WORKSPACES_SCRIPT} set-active-workspace ${workspace.id}"
+                (label :text "󰃀")))))
