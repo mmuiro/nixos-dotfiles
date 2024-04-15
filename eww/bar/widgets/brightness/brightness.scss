@@ -1,0 +1,37 @@
+.brightness {
+    background-color: $bg-darkish;
+    border-radius: 8px;
+    color: $fg-lightest;
+    label {
+        padding: 8px 10px 8px 17px;
+        font-size: 22px;
+    }
+    &:hover {
+        color: $fg-light;
+    }
+}
+
+.brightness-menu {
+    background-color: $bg-dark;
+    padding: 16px 20px;
+    border-radius: 8px;
+}
+
+.brightness-menu-border {
+    background-color: $fg-light;
+    padding: 2px;
+    border-radius: 8px;
+}
+
+scale.brightness-scale {
+    trough {
+        background-color: $bg-darkish;
+        min-height: 100px;
+        min-width: 8px;
+        border-radius: 2px;
+    }
+    trough highlight {
+        background-color: $fg-light;
+        border-radius: 2px;
+    }
+}

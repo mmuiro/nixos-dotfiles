@@ -1,0 +1,57 @@
+(include "/home/jzli/.config/eww/common/utils/closer.yuck")
+(defvar BRIGHTNESS_SCRIPT "$HOME/.config/eww/bar/widgets/brightness/brightness.sh")
+
+(defvar brightness_menu_open false)
+(defvar max_brightness_level 255)
+(deflisten brightness_level
+    :initial "Loading"
+    "$HOME/.config/eww/bar/widgets/brightness/brightness.sh follow-brightness")
+
+
+(defwidget brightness []
+    (eventbox
+        :class "brightness"
+        :hexpand false
+        :onclick "${BRIGHTNESS_SCRIPT} open-brightness-menu"
+        (label 
+            :text {brightness_level / max_brightness_level <= 0.3 ? "󰃞 " :
+                    brightness_level / max_brightness_level <= 0.7 ? "󰃟 " : "󰃠 "})))
+
+(defwidget brightness-menu-widget [brightness_value]
+    (box
+        :class "brightness-menu-border"
+        (box
+            :orientation "v"
+            :class "brightness-menu"
+            (scale
+                :class "brightness-scale"
+                :flipped true
+                :min 0 
+                :max 255
+                :active true
+                :value brightness_value
+                :orientation "v"
+                :onchange "${BRIGHTNESS_SCRIPT} set-brightness {}"))))
+
+(defwindow brightness-menu
+    :monitor 0
+    :geometry (geometry
+                :x "277px"
+                :y "4px"
+                :anchor "bottom right")
+    :stacking "overlay"
+    :exclusive false
+    :focusable false
+    (brightness-menu-widget :brightness_value brightness_level))
+
+(defwindow brightness-menu-closer
+    :monitor 0
+    :geometry (geometry
+                :width "100%"
+                :height "100%")
+    :stacking "overlay"
+    :exclusive false
+    :focusable true
+    (closer
+        :window "brightness-menu"
+        :close_cmd "${BRIGHTNESS_SCRIPT} close-brightness-menu"))

@@ -1,5 +1,5 @@
 (defvar WORKSPACES_SCRIPT "$HOME/.config/eww/bar/widgets/workspaces/workspaces.sh")
-(deflisten workspaces_status
+(deflisten workspaces_status 
     :initial "[]"
     "$HOME/.config/eww/bar/widgets/workspaces/workspaces.sh follow-workspaces")
 (defvar active_workspace 1)

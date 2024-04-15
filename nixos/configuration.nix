@@ -77,6 +77,11 @@
         acpi
         socat
         jq
+        cinnamon.nemo
+        inotify-tools
+        wl-clipboard
+        ntfs3g
+        exfat
         # Programming languages (switch to using shell.nix where possible)
         rustup
         go
@@ -88,6 +93,7 @@
         # RICING
         hyprpaper
         unstable.eww
+        nwg-look
         # TODO: add nwg-look (lxappearance alternative)
         # OTHER
         neofetch
@@ -130,6 +136,9 @@
         };
         automatic-timezoned.enable = true;
         power-profiles-daemon.enable = true;
+        devmon.enable = true;
+        gvfs.enable = true;
+        udisks2.enable = true;
     };
 
     xdg = {

@@ -1,3 +1,4 @@
+(include "/home/jzli/.config/eww/common/utils/closer.yuck")
 (defvar BATTERY_SCRIPT "/home/jzli/.config/eww/bar/widgets/battery/battery.sh")
 
 (deflisten active_power_profile "$HOME/.config/eww/bar/widgets/battery/battery.sh follow-active-profile")
