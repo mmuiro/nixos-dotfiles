@@ -1,0 +1,12 @@
+.audio {
+    border-radius: 8px;
+    background-color: $bg-darkish;
+    color: $fg-lightest;
+    font-size: 24px;
+    &:hover {
+        color: $fg-light;
+    }
+    label {
+        padding: 8px 20px 8px 18px;
+    }
+}

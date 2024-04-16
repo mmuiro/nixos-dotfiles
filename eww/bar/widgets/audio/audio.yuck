@@ -1,0 +1,16 @@
+(defvar AUDIO_SCRIPT "$HOME/.config/eww/bar/widgets/audio/audio.sh")
+
+(defvar volume 100)
+(defvar muted false)
+(defvar audio_menu_open false)
+
+(defwidget audio []
+    (eventbox
+        :class "audio"
+        :onclick "${AUDIO_SCRIPT} open-audio-menu"
+        (label :text {muted ? "󰝟" :
+                        volume <= 30 ? "󰕿" :
+                        volume <= 70 ? "󰖀" : "󰕾"})))
+
+(defwidget audio-menu-widget []
+    (label :text "yup"))
