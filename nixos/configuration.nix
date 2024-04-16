@@ -80,7 +80,6 @@
         cinnamon.nemo
         inotify-tools
         wl-clipboard
-        ntfs3g
         exfat
         # Programming languages (switch to using shell.nix where possible)
         rustup
@@ -139,6 +138,12 @@
         devmon.enable = true;
         gvfs.enable = true;
         udisks2.enable = true;
+        auto-cpufreq = {
+            enable = true;
+        };
+        thermald = {
+            enable = true;
+        };
     };
 
     xdg = {
